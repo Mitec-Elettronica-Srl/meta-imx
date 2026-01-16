@@ -30,4 +30,4 @@ EXTRA_OEMESON += "-Dtests=false"
 BBCLASSEXTEND = "native nativesdk"
 
 PACKAGE_ARCH = "${MACHINE_SOCARCH}"
-#COMPATIBLE_MACHINE = "(mx6-nxp-bsp|mx7-nxp-bsp|mx8-nxp-bsp|mx9-nxp-bsp)"
+COMPATIBLE_MACHINE = "(mx6-nxp-bsp|mx7-nxp-bsp|mx8-nxp-bsp|mx9-nxp-bsp)"
