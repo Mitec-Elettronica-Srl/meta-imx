@@ -76,7 +76,7 @@ DEFAULTBACKEND:qemuall ?= "drm"
 
 INHIBIT_UPDATERCD_BBCLASS = "${@oe.utils.conditional('VIRTUAL-RUNTIME_init_manager', 'systemd', '1', '', d)}"
 
-inherit update-rc.d systemd useradd
+#inherit update-rc.d systemd useradd
 
 #USERADD_PACKAGES = "${PN}"
 
