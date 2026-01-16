@@ -19,16 +19,15 @@ S = "${WORKDIR}/git"
 UPSTREAM_CHECK_URI = "https://gitlab.freedesktop.org/wayland/wayland-protocols/-/tags"
 UPSTREAM_CHECK_REGEX = "releases/(?P<pver>.+)"
 
+DEPENDS += "wayland-native"
+
 # NOTE: For i.MX drop allarch since the recipe is SOCARCH
-#inherit meson pkgconfig allarch
-inherit meson pkgconfig
+inherit meson pkgconfig allarch
+#inherit meson pkgconfig
 
 EXTRA_OEMESON += "-Dtests=false"
-
-PACKAGES = "${PN}"
-FILES:${PN} += "${datadir}/pkgconfig/wayland-protocols.pc"
 
 BBCLASSEXTEND = "native nativesdk"
 
 PACKAGE_ARCH = "${MACHINE_SOCARCH}"
-COMPATIBLE_MACHINE = "(mx6-nxp-bsp|mx7-nxp-bsp|mx8-nxp-bsp|mx9-nxp-bsp)"
+#COMPATIBLE_MACHINE = "(mx6-nxp-bsp|mx7-nxp-bsp|mx8-nxp-bsp|mx9-nxp-bsp)"
