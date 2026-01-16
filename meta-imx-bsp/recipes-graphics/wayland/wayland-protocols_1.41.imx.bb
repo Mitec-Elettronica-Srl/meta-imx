@@ -19,13 +19,17 @@ S = "${WORKDIR}/git"
 UPSTREAM_CHECK_URI = "https://gitlab.freedesktop.org/wayland/wayland-protocols/-/tags"
 UPSTREAM_CHECK_REGEX = "releases/(?P<pver>.+)"
 
+# !!! Questo non c'è in 1.37.imx !!!
 DEPENDS += "wayland-native"
 
 # NOTE: For i.MX drop allarch since the recipe is SOCARCH
-inherit meson pkgconfig allarch
-#inherit meson pkgconfig
+#inherit meson pkgconfig allarch
+inherit meson pkgconfig
 
 EXTRA_OEMESON += "-Dtests=false"
+
+PACKAGES = "${PN}"
+FILES:${PN} += "${datadir}/pkgconfig/wayland-protocols.pc"
 
 BBCLASSEXTEND = "native nativesdk"
 
