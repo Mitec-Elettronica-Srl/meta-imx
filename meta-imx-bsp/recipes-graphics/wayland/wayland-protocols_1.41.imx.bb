@@ -16,7 +16,8 @@ SRCREV = "3302dbbfaf877f1fe49f7cc643de2dd827912d6a"
 
 S = "${WORKDIR}/git"
 
-UPSTREAM_CHECK_URI = "https://wayland.freedesktop.org/releases.html"
+UPSTREAM_CHECK_URI = "https://gitlab.freedesktop.org/wayland/wayland-protocols/-/tags"
+UPSTREAM_CHECK_REGEX = "releases/(?P<pver>.+)"
 
 # NOTE: For i.MX drop allarch since the recipe is SOCARCH
 #inherit meson pkgconfig allarch
