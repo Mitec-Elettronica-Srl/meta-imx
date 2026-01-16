@@ -1,7 +1,7 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
 SRC_URI:append:imxgpu = " \
-    file://0001-Prefer-to-create-GLES2-context-for-glamor-EGL_1.patch \
+    file://0001-Prefer-to-create-GLES2-context-for-glamor-EGL.patch \
 "
 
 OPENGL_PKGCONFIGS:remove:imxgpu = "${OPENGL_PKGCONFIGS_REMOVE_IMXGPU}"
