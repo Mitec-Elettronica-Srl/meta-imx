@@ -24,21 +24,23 @@ PACKAGECONFIG[use-pixman] = ",,"
 DEFAULTBACKEND ??= ""
 DEFAULTBACKEND:qemuall ?= "drm"
 
+RESDIR="${S}/../"
+
 do_install() {
 	# Install weston-start script
 	if [ "${VIRTUAL-RUNTIME_init_manager}" != "systemd" ]; then
-		install -Dm755 ${S}/weston-start ${D}${bindir}/weston-start
+		install -Dm755 ${RESDIR}/weston-start ${D}${bindir}/weston-start
 		sed -i 's,@DATADIR@,${datadir},g' ${D}${bindir}/weston-start
 		sed -i 's,@LOCALSTATEDIR@,${localstatedir},g' ${D}${bindir}/weston-start
-		install -Dm755 ${S}/init ${D}/${sysconfdir}/init.d/weston
+		install -Dm755 ${RESDIR}/init ${D}/${sysconfdir}/init.d/weston
 		sed -i 's#ROOTHOME#${ROOT_HOME}#' ${D}/${sysconfdir}/init.d/weston
 	fi
 
 	# Install Weston systemd service
 	if ${@bb.utils.contains('DISTRO_FEATURES','systemd','true','false',d)}; then
-		install -D -p -m0644 ${S}/weston.service ${D}${systemd_system_unitdir}/weston.service
-		install -D -p -m0644 ${S}/weston.socket ${D}${systemd_system_unitdir}/weston.socket
-		install -D -p -m0644 ${S}/weston-socket.sh ${D}${sysconfdir}/profile.d/weston-socket.sh
+		install -D -p -m0644 ${RESDIR}/weston.service ${D}${systemd_system_unitdir}/weston.service
+		install -D -p -m0644 ${RESDIR}/weston.socket ${D}${systemd_system_unitdir}/weston.socket
+		install -D -p -m0644 ${RESDIR}/weston-socket.sh ${D}${sysconfdir}/profile.d/weston-socket.sh
 		sed -i -e s:/etc:${sysconfdir}:g \
 			-e s:/usr/bin:${bindir}:g \
 			-e s:/var:${localstatedir}:g \
@@ -46,11 +48,11 @@ do_install() {
 	fi
 
 	if [ "${@bb.utils.filter('DISTRO_FEATURES', 'pam', d)}" ]; then
-		install -D -p -m0644 ${S}/weston-autologin ${D}${sysconfdir}/pam.d/weston-autologin
+		install -D -p -m0644 ${RESDIR}/weston-autologin ${D}${sysconfdir}/pam.d/weston-autologin
 	fi
 
-	install -D -p -m0644 ${S}/weston.ini ${D}${sysconfdir}/xdg/weston/weston.ini
-	install -Dm644 ${S}/weston.env ${D}${sysconfdir}/default/weston
+	install -D -p -m0644 ${RESDIR}/weston.ini ${D}${sysconfdir}/xdg/weston/weston.ini
+	install -Dm644 ${RESDIR}/weston.env ${D}${sysconfdir}/default/weston
 
 	if [ -n "${DEFAULTBACKEND}" ]; then
 		sed -i -e "/^\[core\]/a backend=${DEFAULTBACKEND}-backend.so" ${D}${sysconfdir}/xdg/weston/weston.ini
