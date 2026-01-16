@@ -2,13 +2,13 @@
 DESCRIPTION = "NXP Multimedia opencl converter lib"
 LICENSE = "Proprietary"
 SECTION = "multimedia"
-LIC_FILES_CHKSUM = "file://COPYING;md5=ca53281cc0caa7e320d4945a896fb837" 
+LIC_FILES_CHKSUM = "file://COPYING;md5=bc649096ad3928ec06a8713b8d787eac" 
 DEPENDS = "virtual/opencl-icd"
 
 SRC_URI = "${FSL_MIRROR}/${BP}-${IMX_SRCREV_ABBREV}.bin;fsl-eula=true"
-IMX_SRCREV_ABBREV = "605ef75"
+IMX_SRCREV_ABBREV = "00ddb57"
 
-SRC_URI[sha256sum] = "777f49805d5455ebc27e63d19552e2924174011d2ae7d9b392febfa8794d4dc6"
+SRC_URI[sha256sum] = "b4e0b0c3418d5d73833bc9cc4eb299da854d2218e217bc23b922832396cd6451"
 
 S = "${WORKDIR}/${BP}-${IMX_SRCREV_ABBREV}"
 inherit fsl-eula-unpack autotools pkgconfig meson

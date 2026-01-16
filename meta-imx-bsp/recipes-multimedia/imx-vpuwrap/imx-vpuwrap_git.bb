@@ -12,12 +12,14 @@ DEPENDS:append:mx8mp-nxp-bsp = " imx-vpu-hantro-vc"
 
 SRC_URI = "${IMX_VPUWRAP_SRC};branch=${SRCBRANCH}"
 IMX_VPUWRAP_SRC ?= "git://github.com/NXP/imx-vpuwrap.git;protocol=https"
-SRCBRANCH = "MM_04.09.02_2410_L6.6.y"
-SRCREV = "378e33989cf72d6c2eb57a585072ba9abe87c6ff" 
+SRCBRANCH = "MM_04.10.02_2510_L6.12.49"
+SRCREV = "93fbc9efca2e240c5f25dcec91832f2fe4c60b73"
 
 S = "${WORKDIR}/git"
 
 inherit autotools pkgconfig
+
+CFLAGS += " -Wno-error=implicit-function-declaration"
 
 do_install:append() {
     # FIXME: Drop examples for now
