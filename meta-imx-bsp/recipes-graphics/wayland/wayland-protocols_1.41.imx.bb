@@ -32,7 +32,9 @@ EXTRA_OEMESON += "-Dtests=false"
 #FILES:${PN} += "${datadir}/pkgconfig/wayland-protocols.pc"
 
 PACKAGES =+ "${PN}-dev"
-FILES_${PN}-dev += "${datadir}/pkgconfig/wayland-protocols.pc ${includedir}/* ${libdir}/pkgconfig/*.pc"
+FILES:${PN}-dev += "${datadir}/pkgconfig/wayland-protocols.pc ${includedir}/* ${libdir}/pkgconfig/*.pc"
+
+PROVIDES += "wayland-protocols-dev"
 
 BBCLASSEXTEND = "native nativesdk"
 
