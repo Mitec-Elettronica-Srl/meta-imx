@@ -34,4 +34,4 @@ FILES:${PN} += "${datadir}/pkgconfig/wayland-protocols.pc"
 BBCLASSEXTEND = "native nativesdk"
 
 PACKAGE_ARCH = "${MACHINE_SOCARCH}"
-COMPATIBLE_MACHINE = "(mx6-nxp-bsp|mx7-nxp-bsp|mx8-nxp-bsp|mx9-nxp-bsp)"
+COMPATIBLE_MACHINE = "(mx6-nxp-bsp|mx7-nxp-bsp|mx8-nxp-bsp|mx9-nxp-bsp|imx8mm-var-dart)"
