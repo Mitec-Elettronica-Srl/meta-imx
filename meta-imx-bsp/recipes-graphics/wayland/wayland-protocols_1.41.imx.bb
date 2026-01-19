@@ -24,7 +24,7 @@ UPSTREAM_CHECK_REGEX = "releases/(?P<pver>.+)"
 
 # NOTE: For i.MX drop allarch since the recipe is SOCARCH
 #inherit meson pkgconfig allarch
-inherit meson pkgconfig allarch
+inherit meson pkgconfig
 
 EXTRA_OEMESON += "-Dtests=false"
 
