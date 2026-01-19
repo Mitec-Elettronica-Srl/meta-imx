@@ -24,7 +24,7 @@ DEPENDS += "wayland-native"
 
 # NOTE: For i.MX drop allarch since the recipe is SOCARCH
 #inherit meson pkgconfig allarch
-inherit meson pkgconfig
+inherit meson pkgconfig allarch
 
 EXTRA_OEMESON += "-Dtests=false"
 
