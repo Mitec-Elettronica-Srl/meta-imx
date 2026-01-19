@@ -20,7 +20,7 @@ UPSTREAM_CHECK_URI = "https://gitlab.freedesktop.org/wayland/wayland-protocols/-
 UPSTREAM_CHECK_REGEX = "releases/(?P<pver>.+)"
 
 # !!! Questo non c'è in 1.37.imx !!!
-DEPENDS += "wayland-native"
+#DEPENDS += "wayland-native"
 
 # NOTE: For i.MX drop allarch since the recipe is SOCARCH
 #inherit meson pkgconfig allarch
