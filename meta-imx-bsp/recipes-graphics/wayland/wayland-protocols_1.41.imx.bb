@@ -38,5 +38,5 @@ PROVIDES += "wayland-protocols-dev"
 
 BBCLASSEXTEND = "native nativesdk"
 
-PACKAGE_ARCH = "${MACHINE_SOCARCH}"
-COMPATIBLE_MACHINE = "(mx6-nxp-bsp|mx7-nxp-bsp|mx8-nxp-bsp|mx9-nxp-bsp|imx8mm-var-dart)"
+#PACKAGE_ARCH = "${MACHINE_SOCARCH}"
+#COMPATIBLE_MACHINE = "(mx6-nxp-bsp|mx7-nxp-bsp|mx8-nxp-bsp|mx9-nxp-bsp|imx8mm-var-dart)"
