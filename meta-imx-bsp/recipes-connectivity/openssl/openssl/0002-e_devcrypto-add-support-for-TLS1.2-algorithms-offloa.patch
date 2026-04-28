@@ -23,7 +23,7 @@ Signed-off-by: Pankaj Gupta <pankaj.gupta@nxp.com>
  1 file changed, 294 insertions(+), 11 deletions(-)
 
 diff --git a/engines/e_devcrypto.c b/engines/e_devcrypto.c
-index fc0d458..239d141 100644
+index fc0d458..873b224 100644
 --- a/engines/e_devcrypto.c
 +++ b/engines/e_devcrypto.c
 @@ -24,10 +24,12 @@
@@ -218,7 +218,7 @@ index fc0d458..239d141 100644
 +                len -= EVP_CIPHER_CTX_get_iv_length(ctx);
 +            }
 +        }
-+        cryp.iv = (void *)EVP_CIPHER_CTX_get_iv(ctx);
++        cryp.iv = (void *)EVP_CIPHER_CTX_iv(ctx);
 +    } else {
 +        cryp.iv = NULL;
 +    }
